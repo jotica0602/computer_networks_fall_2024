@@ -289,6 +289,7 @@ class IRCClient:
     def process_command(self, command):
         parts = command.split(' ', 1)
         cmd = parts[0].lower()
+        print('PARTS' + parts[1])
         #/notice #General Hello, World!
         if cmd == "/join" and len(parts) > 1:
             self.join_channel(parts[1])
@@ -371,7 +372,6 @@ class IRCClient:
                 while "\r\n" in buffer:
                     message, buffer = buffer.split("\r\n", 1)  # Separa el primer mensaje completo del buffer
                     parts = message.split(" ")
-                    print(parts)
 
                     # Lógica para manejar diferentes tipos de mensajes basada en 'parts'
                     if parts[0] == "PING":
@@ -462,9 +462,7 @@ def main():
         threading.Thread(target=irc_client.receive_messages, daemon=True).start()
         
         if command and argument:
-            print(command)
             command = '/'+command.split('/').pop()
-            print(command)
             user_input = f"{'/'+command.split('/').pop()} {argument}"
             if user_input.startswith('/'):
                 irc_client.process_command(user_input)
