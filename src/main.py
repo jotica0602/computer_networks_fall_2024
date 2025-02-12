@@ -3,17 +3,23 @@ import ssl
 import threading
 
 class IRCClient:
-    def __init__(self, server, port, nickname, use_ssl=False):
-        self.server = server
+    def __init__(self, host, port, nickname, use_ssl=False):
+        self.host = host
         self.port = port
         self.nickname = nickname
         self.use_ssl = use_ssl
         self.running = True
         
-        self.sock = socket.create_connection((server, port))
-        if use_ssl:
-            context = ssl.create_default_context()
-            self.sock = context.wrap_socket(self.sock, server_hostname=host)
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        if self.use_ssl:
+            # Crear una instancia de SSLContext para autenticación del servidor (conexión cliente)
+            ssl_context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
+            ssl_context.check_hostname = True  # Verifica que el nombre de host en el certificado coincide con el objetivo
+            ssl_context.verify_mode = ssl.CERT_REQUIRED  # Requiere un certificado válido
+            # ssl_context.check_hostname = False
+            # ssl_context.verify_mode = ssl.CERT_NONE  #Deshabilita la verificación del certificado
+            # Envolver el socket existente en un contexto SSL
+            self.socket = ssl_context.wrap_socket(self.socket, server_hostname=self.host)
         
         self.send_raw(f'NICK {self.nickname}')
         self.send_raw(f'USER {self.nickname} 0 * :Python IRC Client')
