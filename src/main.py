@@ -1,5 +1,6 @@
 from controller import ClientController
 import sys
+import time
 # -H <direccion_ip> -p <puerto> -n <nick> -c <comando> -a <argumento>"
 
 test_input = sys.argv[1:]
@@ -11,7 +12,8 @@ print(command)
 ircc = ClientController()
 ircc.connect_to_server(host,port,nickname,False)
 ircc.handle_user_input(command + ' ' + arg)
-# ircc.disconnect_from_server()
+time.sleep(10)
+ircc.disconnect_from_server()
 
 
 
