@@ -1,4 +1,5 @@
 from controller import ClientController
+print('hola')
 # -H <direccion_ip> -p <puerto> -n <nick> -c <comando> -a <argumento>"
 
 # _input = input()
