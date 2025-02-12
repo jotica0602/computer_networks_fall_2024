@@ -472,7 +472,7 @@ def main():
         threading.Thread(target=irc_client.receive_messages, daemon=True).start()
         
         if command and argument:
-            print(f"ARGUMENTO {argument}")
+            # print(f"ARGUMENTO {argument}")
             user_input = f"{command} {argument}"
             if user_input.startswith('/'):
                 # print(user_input)
