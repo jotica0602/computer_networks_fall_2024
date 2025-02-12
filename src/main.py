@@ -290,7 +290,6 @@ class IRCClient:
         print('COMMAND' + command)
         parts = command.split(' ', 1)
         cmd = parts[0].lower()
-        print('PARTS' + parts[1])
         #/notice #General Hello, World!
         if cmd == "/join" and len(parts) > 1:
             self.join_channel(parts[1])
