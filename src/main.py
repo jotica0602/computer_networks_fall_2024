@@ -26,7 +26,7 @@ class IRCClient:
         
     
     def send_raw(self, data):
-        self.sock.send((data + '\r\n').encode('utf-8'))
+        self.socket.send((data + '\r\n').encode('utf-8'))
     
     def change_nick(self, new_nick):
         self.send_raw(f'NICK {new_nick}')
@@ -50,12 +50,12 @@ class IRCClient:
     def quit(self, message="Goodbye!"):
         self.send_raw(f'QUIT :{message}')
         self.running = False
-        self.sock.close()
+        self.socket.close()
     
     def handle_server_response(self):
         while self.running:
             try:
-                data = self.sock.recv(4096).decode('utf-8', errors='ignore')
+                data = self.socket.recv(4096).decode('utf-8', errors='ignore')
                 if not data:
                     break
                 for line in data.split('\r\n'):
