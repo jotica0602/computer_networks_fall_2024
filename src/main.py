@@ -415,18 +415,18 @@ def main():
         sys.exit(2)
     
     test_input = sys.argv[1:]
-    print(test_input)
+  
     server_ip,port,nickname,command,argument = test_input[1],int(test_input[3]),test_input[5],'/'+test_input[7].split('/').pop(),test_input[9]
 
-    print(server_ip)
-    print(nickname)
-    print(command)
-    print(argument)
-    server_ip = None
-    port = None
-    nickname = None
-    command = None
-    argument = None
+    # print(server_ip)
+    # print(nickname)
+    # print(command)
+    # print(argument)
+    # server_ip = None
+    # port = None
+    # nickname = None
+    # command = None
+    # argument = None
     use_ssl = False
 
     # print(opts)
