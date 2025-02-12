@@ -455,6 +455,10 @@ def main():
 
     irc_client = IRCClient(server_ip, port, nickname, use_ssl)
     irc_client.connect()
+    
+    if command == '/notice':
+        print(f'COMANDO {command}')
+        print(f'ARGUMENTO {arg}')
 
     if irc_client.connected:
         # print(f"Bienvenido, {nickname}!\n")
