@@ -4,7 +4,7 @@ import time
 # -H <direccion_ip> -p <puerto> -n <nick> -c <comando> -a <argumento>"
 
 test_input = sys.argv[1:]
-print(test_input)
+# print(test_input)
 host,port,nickname,command,arg = test_input[1],int(test_input[3]),test_input[5],test_input[7].split('/'),test_input[9]
 command = '/' + command[len(command) -1 ]
 # print(command)
