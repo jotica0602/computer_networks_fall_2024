@@ -287,7 +287,9 @@ class IRCClient:
     
     
     def process_command(self, command):
+        
         parts = command.split(' ', 1)
+        print(parts)
         cmd = parts[0].lower()
         #/notice #General Hello, World!
         if cmd == "/join" and len(parts) > 1:
@@ -472,8 +474,8 @@ def main():
         if command and argument:
             user_input = f"{command} {argument}"
             if user_input.startswith('/'):
-                print(user_input)
-                print(argument)
+                # print(user_input)
+                # print(argument)
                 irc_client.process_command(user_input)
             else:
                 irc_client.send_message(user_input)
