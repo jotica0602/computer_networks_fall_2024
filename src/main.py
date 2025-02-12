@@ -434,6 +434,7 @@ def main():
             command = arg
         elif opt in ("-a", "--argument"):
             argument = arg
+            
     
     if not server_ip or not port or not nickname:
        # Modo interactivo
