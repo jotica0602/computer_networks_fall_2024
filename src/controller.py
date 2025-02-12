@@ -54,7 +54,7 @@ class ClientController:
             print('Invalid command: ' + command)
             return  
         self.send_message(command_name + " " + command_args)
-        print("handle user command: " + command)
+        # print("handle user command: " + command)
 
     def send_message(self, message, channel=None):
         # Send a message to the server or a specific channel
