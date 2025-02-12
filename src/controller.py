@@ -60,7 +60,7 @@ class ClientController:
         # Send a message to the server or a specific channel
         if channel:
             message = ("PRIVMSG {} :{}".format(channel, message))
-            print(channel+" "+message)
+            # print(channel+" "+message)
       
         self.server_interface.send_message(message)
         

@@ -7,13 +7,13 @@ test_input = sys.argv[1:]
 print(test_input)
 host,port,nickname,command,arg = test_input[1],int(test_input[3]),test_input[5],test_input[7].split('/'),test_input[9]
 command = '/' + command[len(command) -1 ]
-print(command)
+# print(command)
 # exit()
 ircc = ClientController()
 ircc.connect_to_server(host,port,nickname,False)
 ircc.handle_user_input(command + ' ' + arg)
-# time.sleep(10)
-# ircc.disconnect_from_server()
+time.sleep(10)
+ircc.disconnect_from_server()
 
 
 
