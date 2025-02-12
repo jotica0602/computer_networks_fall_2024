@@ -418,8 +418,9 @@ def main():
     
     test_input = sys.argv[1:]
     print(test_input)
-    exit()
     server_ip,port,nickname,command,argument = test_input[1],int(test_input[3]),test_input[5],'/'+test_input[7].split('/').pop(),test_input[9:]
+    print(argument)
+    exit()
     # print(server_ip)
     # print(nickname)
     # print(command)
