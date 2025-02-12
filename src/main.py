@@ -287,7 +287,6 @@ class IRCClient:
     
     
     def process_command(self, command):
-        print('COMMAND' + command)
         parts = command.split(' ', 1)
         cmd = parts[0].lower()
         #/notice #General Hello, World!
@@ -414,7 +413,16 @@ def main():
     except getopt.GetoptError as err:
         print(str(err))
         sys.exit(2)
+    
+    test_input = sys.argv[1:]
+    print(test_input)
+    server_ip,port,nickname,command,argument = test_input[1],test_input[3],test_input[5],'/'+test_input[7].split('/').pop(),test_input[9]
 
+    print(server_ip)
+    print(nickname)
+    print(command)
+    print(argument)
+    exit()
     server_ip = None
     port = None
     nickname = None
@@ -422,18 +430,18 @@ def main():
     argument = None
     use_ssl = False
 
-    print(opts)
-    for opt, arg in opts:
-        if opt in ("-p", "--port"):
-            port = int(arg)
-        elif opt in ("-H", "--host"):
-            server_ip = arg
-        elif opt in ("-n", "--nick"):
-            nickname = arg
-        elif opt in ("-c", "--command"):
-            command = arg
-        elif opt in ("-a", "--argument"):
-            argument = arg
+    # print(opts)
+    # for opt, arg in opts:
+    #     if opt in ("-p", "--port"):
+    #         port = int(arg)
+    #     elif opt in ("-H", "--host"):
+    #         server_ip = arg
+    #     elif opt in ("-n", "--nick"):
+    #         nickname = arg
+    #     elif opt in ("-c", "--command"):
+    #         command = arg
+    #     elif opt in ("-a", "--argument"):
+    #         argument = arg
             
     
     if not server_ip or not port or not nickname:
