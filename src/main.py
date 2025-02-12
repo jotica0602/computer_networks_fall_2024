@@ -419,7 +419,7 @@ def main():
     test_input = sys.argv[1:]
     print(test_input)
     server_ip,port,nickname,command,argument = test_input[1],int(test_input[3]),test_input[5],'/'+test_input[7].split('/').pop(),test_input[9:]
-    print(argument)
+    print(''.join(argument))
     exit()
     # print(server_ip)
     # print(nickname)
