@@ -6,6 +6,9 @@ def main():
     port = int(input("Ingrese la dirección del puerto: "))
     nickname = input("Ingrese su nick: ")
 
+    print(host)
+    print(port)
+    print(nickname)
     ircc = ClientController()
     ircc.connect_to_server(host,port,nickname,False)
     
