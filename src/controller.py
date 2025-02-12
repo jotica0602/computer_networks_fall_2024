@@ -18,6 +18,7 @@ class ClientController:
 
     def disconnect_from_server(self):
         self.send_message("QUIT")
+        # self.server_interface.connected = False
 
     def join_channel(self, channel):
         # Create a new channel window
