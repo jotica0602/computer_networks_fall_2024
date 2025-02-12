@@ -1,0 +1,5 @@
+-H "irc.libera.chat" -p "6667" -n "TestUser1" -c "/nick" -a "NuevoNick"
+-H "irc.libera.chat" -p "6667" -n "TestUser1" -c "/join" -a "#Nuevo"
+-H "irc.libera.chat" -p "6667" -n "TestUser1" -c "/notice" -a "#General Hello, world!"
+-H "irc.libera.chat" -p "6667" -n "NewNick" -c "/part" -a "#General"
+-H "irc.libera.chat" -p "6667" -n "NewNick" -c "/quit" -a "Goodbye!"
