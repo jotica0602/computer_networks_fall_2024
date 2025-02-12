@@ -1,9 +1,7 @@
 from controller import ClientController
-# print('hola')
 # -H <direccion_ip> -p <puerto> -n <nick> -c <comando> -a <argumento>"
 
-_input = input()
-print(_input)
+_input = input().replace('"','').split(' ')
 host,port,nickname,command,arg = _input[1],int(_input[3]),_input[5],_input[7],_input[9]
 
 ircc = ClientController()
