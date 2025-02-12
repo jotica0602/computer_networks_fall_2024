@@ -422,7 +422,6 @@ def main():
     print(nickname)
     print(command)
     print(argument)
-    exit()
     server_ip = None
     port = None
     nickname = None
