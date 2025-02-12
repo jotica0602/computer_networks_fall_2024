@@ -15,7 +15,7 @@ class ServerInterface:
 
     def connect(self, nickname, username, realname):
         # Connect to the server
-        print(f'conectando a {self.server}:{self.port} nick {self.nickname}')
+        # print(f'conectando a {self.server}:{self.port} nick {self.nickname}')
         self.socket.connect((self.server, self.port))
         if self.use_ssl:
             # Create a new SSL context with a specific SSL/TLS version and cipher suites
