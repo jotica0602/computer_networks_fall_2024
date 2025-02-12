@@ -1,6 +1,7 @@
 import socket
 import ssl
 import threading
+import time
 
 class IRCClient:
     def __init__(self, host, port, nickname, use_ssl=False):
@@ -8,7 +9,6 @@ class IRCClient:
         self.port = port
         self.nickname = nickname
         self.use_ssl = use_ssl
-        self.running = True
         
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         if self.use_ssl:
@@ -21,8 +21,13 @@ class IRCClient:
             # Envolver el socket existente en un contexto SSL
             self.socket = ssl_context.wrap_socket(self.socket, server_hostname=self.host)
         
+        time.sleep(5)
+        self.socket.connect((self.host,self.port))
+        self.running = True
+        
         self.send_raw(f'NICK {self.nickname}')
         self.send_raw(f'USER {self.nickname} 0 * :Python IRC Client')
+        
         
     
     def send_raw(self, data):
