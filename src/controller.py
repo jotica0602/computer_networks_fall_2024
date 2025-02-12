@@ -51,7 +51,7 @@ class ClientController:
 
         if command_name not in self.VALID_COMMANDS:
             # self.main_window.display_message("Invalid command: " + command)
-            print('Invalid command: ' + command)
+            # print('Invalid command: ' + command)
             return  
         self.send_message(command_name + " " + command_args)
         # print("handle user command: " + command)
@@ -135,7 +135,7 @@ class ClientController:
             channel_name = line.split(" PART ", 1)[1]
             # self.remove_channel_window(channel_name)
             # self.main_window.display_message("you left "+channel_name) 
-            print('you left '+ channel_name)
+            # print('you left '+ channel_name)
         elif ' KICK ' in line:
             # Parse the KICK message
             parts = line.split(' KICK ')
