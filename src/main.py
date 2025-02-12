@@ -462,8 +462,7 @@ def main():
         threading.Thread(target=irc_client.receive_messages, daemon=True).start()
         
         if command and argument:
-            command = '/'+command.split('/').pop()
-            user_input = f"{'/'+command.split('/').pop()} {argument}"
+            user_input = f"{command} {argument}"
             if user_input.startswith('/'):
                 irc_client.process_command(user_input)
             else:
