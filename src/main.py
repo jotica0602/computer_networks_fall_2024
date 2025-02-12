@@ -21,7 +21,7 @@ class IRCClient:
             # Envolver el socket existente en un contexto SSL
             self.socket = ssl_context.wrap_socket(self.socket, server_hostname=self.host)
         
-        time.sleep(5)
+        # time.sleep(5)
         self.socket.connect((self.host,self.port))
         self.running = True
         
