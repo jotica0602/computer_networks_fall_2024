@@ -464,6 +464,7 @@ def main():
         if command and argument:
             user_input = f"{command} {argument}"
             if user_input.startswith('/'):
+                print(user_input)
                 irc_client.process_command(user_input)
             else:
                 irc_client.send_message(user_input)
