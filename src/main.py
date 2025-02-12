@@ -289,7 +289,8 @@ class IRCClient:
     def process_command(self, command):
         parts = command.split(' ', 1)
         cmd = parts[0].lower()
-
+        print(f"COMANDO {command}")
+        #/notice #General Hello, World!
         if cmd == "/join" and len(parts) > 1:
             self.join_channel(parts[1])
         elif cmd == "/part" and len(parts) > 1:
@@ -456,10 +457,6 @@ def main():
     irc_client = IRCClient(server_ip, port, nickname, use_ssl)
     irc_client.connect()
     
-    if command == '/notice':
-        print(f'COMANDO {command}')
-        print(f'ARGUMENTO {arg}')
-
     if irc_client.connected:
         # print(f"Bienvenido, {nickname}!\n")
         threading.Thread(target=irc_client.receive_messages, daemon=True).start()
