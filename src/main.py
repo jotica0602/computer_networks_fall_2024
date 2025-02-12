@@ -422,6 +422,7 @@ def main():
     argument = None
     use_ssl = False
 
+    print(opts)
     for opt, arg in opts:
         if opt in ("-p", "--port"):
             port = int(arg)
