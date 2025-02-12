@@ -299,8 +299,8 @@ class IRCClient:
             if len(target_message) > 1:
                 self.send_privmsg(target_message[0], target_message[1])
         elif cmd == "/notice" and len(parts) > 1:
-            print(f"IMPRIMIR: {command}")
             target_message = parts[1].split(' ', 1)
+            print(f"IMPRIMIR: {target_message}")
             if len(target_message) > 1:
                 self.send_notice(target_message[0], target_message[1])
         elif cmd == "/mode" and len(parts) > 1:
