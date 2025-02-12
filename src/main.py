@@ -289,7 +289,6 @@ class IRCClient:
     def process_command(self, command):
         parts = command.split(' ', 1)
         cmd = parts[0].lower()
-        print(f"COMANDO {command}")
         #/notice #General Hello, World!
         if cmd == "/join" and len(parts) > 1:
             self.join_channel(parts[1])
@@ -300,6 +299,7 @@ class IRCClient:
             if len(target_message) > 1:
                 self.send_privmsg(target_message[0], target_message[1])
         elif cmd == "/notice" and len(parts) > 1:
+            print(f"IMPRIMIR: {command}")
             target_message = parts[1].split(' ', 1)
             if len(target_message) > 1:
                 self.send_notice(target_message[0], target_message[1])
@@ -434,7 +434,7 @@ def main():
             command = arg
         elif opt in ("-a", "--argument"):
             argument = arg
-
+    
     if not server_ip or not port or not nickname:
        # Modo interactivo
         server_ip = input("Ingrese la dirección IP del servidor: ")
@@ -462,7 +462,10 @@ def main():
         threading.Thread(target=irc_client.receive_messages, daemon=True).start()
         
         if command and argument:
-            user_input = f"{command} {argument}"
+            print(command)
+            command = '/'+command.split('/').pop()
+            print(command)
+            user_input = f"{'/'+command.split('/').pop()} {argument}"
             if user_input.startswith('/'):
                 irc_client.process_command(user_input)
             else:
