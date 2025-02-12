@@ -287,6 +287,7 @@ class IRCClient:
     
     
     def process_command(self, command):
+        print('COMMAND' + command)
         parts = command.split(' ', 1)
         cmd = parts[0].lower()
         print('PARTS' + parts[1])
