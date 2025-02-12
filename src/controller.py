@@ -121,7 +121,7 @@ class ClientController:
         elif f"341 {self.user_nick}" in line:
             guest,channel = line.split(f"{self.user_nick} ", 1)[1].split(" ", 1)
             formatted_msg = f"You have invited <{guest}> to join {channel}"
-            print(formatted_msg)
+            # print(formatted_msg)
             # self.main_window.display_message(formatted_msg)
         elif ' JOIN ' in line: 
             user_joined = line.split("!",1)[0][1:]
