@@ -1,21 +1,11 @@
 from controller import ClientController
 # -H <direccion_ip> -p <puerto> -n <nick> -c <comando> -a <argumento>"
 
-def main():
-    host = input("Ingrese la dirección del host: ")
-    port = int(input("Ingrese la dirección del puerto: "))
-    nickname = input("Ingrese su nick: ")
+test_input = input().replace('"','').split(' ')
+print(test_input)
+host,port,nickname,command,arg = test_input[1],int(test_input[3]),test_input[5],test_input[7],test_input[9]
 
-    print(host)
-    print(port)
-    print(nickname)
-    ircc = ClientController()
-    ircc.connect_to_server(host,port,nickname,False)
-    
-    while True:
-        user_input = input()
-        
-    ircc.handle_user_input(command + ' ' + arg)
-    # ircc.disconnect_from_server()
-
-main()
+ircc = ClientController()
+ircc.connect_to_server(host,port,nickname,False)
+ircc.handle_user_input(command + ' ' + arg)
+# ircc.disconnect_from_server()
